@@ -5,7 +5,6 @@ import "./LoginPage.css";
 
 function LoginPage() {
   const [isLogin, setIsLogin] = useState(true);
-  const [users, setUsers] = useState([]);
   const navigate = useNavigate();
 
   const resetForm = (form: HTMLFormElement) => {
@@ -31,7 +30,7 @@ function LoginPage() {
       const data = await response.json();
       if (response.status === 200) {
         toast.success(data.message);
-        setTimeout(() => navigate("/home"), 1000);
+        setTimeout(() => navigate("/home", { state: { email } }), 1000);
         resetForm(form);
       } else {
         toast.error(data.error);
