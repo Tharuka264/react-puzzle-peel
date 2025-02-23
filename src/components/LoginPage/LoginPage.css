@@ -1,0 +1,9 @@
+.login-container {
+    background: url('/src/assets/main_bg.png') no-repeat center center;
+    background-size: cover;
+  }
+
+.login-card {
+    background: rgba(62, 44, 62, 0.85) !important;
+    color: white !important;
+}
