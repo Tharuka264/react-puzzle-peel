@@ -1,15 +1,26 @@
 import "./HomePage.css";
-import { useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const HomePage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const email = location.state?.email;
 
+  const handleSignOut = () => {
+    localStorage.clear();
+    sessionStorage.clear();
+    navigate("/");
+  };
+
   return (
-    <div className="home-container vh-100 d-flex flex-column justify-content-center align-items-center">
-      {email ? <p>Your email is: {email}</p> : <p>Email not available.</p>}
+    <div className="home-container vh-100 d-flex flex-column justify-content-center align-items-center position-relative">
+      <button
+        className="signout-button position-absolute top-0 end-0 m-3 custom-button"
+        onClick={handleSignOut}
+      >
+        Sign Out
+      </button>
+
       <h1 className="text-center" style={{ color: "#4F0640" }}>
         PUZZLE PEEL
       </h1>
@@ -22,7 +33,12 @@ const HomePage = () => {
       />
 
       <div className="mt-5 d-flex flex-column gap-4">
-        <button className="custom-button">Play</button>
+        <button
+          className="custom-button"
+          onClick={() => navigate("/game", { state: { email } })}
+        >
+          Play
+        </button>
         <button
           className="custom-button"
           onClick={() => navigate("/dashboard", { state: { email } })}
