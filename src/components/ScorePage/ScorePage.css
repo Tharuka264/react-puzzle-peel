@@ -1,0 +1,66 @@
+.score-container {
+    background-image: url('/src/assets/dash_img.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+.custom-button {
+    background: linear-gradient(to bottom, #45982E, #17320F);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 150px;
+    transition: background 0.3s;
+    margin: 5px 15px 30px 15px;
+  }
+  
+.home-button {
+    background: linear-gradient(to bottom, #982E2E, #320F0F) !important;
+  }
+
+
+.level-complete-container {
+    position: relative;
+    width: 35%; 
+    border-radius: 20px;
+    background-color: #fdf1d3; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 40px auto; 
+  }
+  
+.content-box {
+    margin-top: 20px;
+  }
+  
+.level-title {
+    font-size: 38px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+    color: #ffac33;
+  }
+  
+.stars {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+.star {
+    font-size: 48px;
+    color: #ffc107;
+    margin: 0 4px;
+  }
+  
+
+.score {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+  
+  

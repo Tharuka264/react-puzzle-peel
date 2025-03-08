@@ -7,3 +7,7 @@
     background: rgba(62, 44, 62, 0.85) !important;
     color: white !important;
 }
+
+.btn-card {
+  text-align: center;
+}

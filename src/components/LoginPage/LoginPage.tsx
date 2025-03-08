@@ -1,15 +1,23 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "./LoginPage.css";
 
 function LoginPage() {
+  const location = useLocation();
   const [isLogin, setIsLogin] = useState(true);
   const navigate = useNavigate();
+  const email = location.state?.email;
 
   const resetForm = (form: HTMLFormElement) => {
     form.reset();
   };
+
+  useEffect(() => {
+    if (email) {
+      sessionStorage.setItem("userEmail", email);
+    }
+  }, [email]);
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -30,7 +38,9 @@ function LoginPage() {
       const data = await response.json();
       if (response.status === 200) {
         toast.success(data.message);
-        setTimeout(() => navigate("/home", { state: { email } }), 1000);
+        const sessionEmail = formData.get("email") as string;
+        sessionStorage.setItem("userEmail", sessionEmail);
+        setTimeout(() => navigate("/home"), 1000);
         resetForm(form);
       } else {
         toast.error(data.error);
@@ -164,9 +174,11 @@ function LoginPage() {
                 />
               </div>
 
-              <button type="submit" className="btn btn-primary w-100">
-                Login
-              </button>
+              <div className="btn-card">
+                <button type="submit" className="btn btn-success w-50">
+                  Login
+                </button>
+              </div>
             </form>
           ) : (
             <form onSubmit={handleSignUp}>
@@ -212,9 +224,11 @@ function LoginPage() {
                 />
               </div>
 
-              <button type="submit" className="btn btn-success w-100">
-                Sign Up
-              </button>
+              <div className="btn-card">
+                <button type="submit" className="btn btn-success w-50">
+                  Sign Up
+                </button>
+              </div>
             </form>
           )}
         </div>

@@ -1,30 +1,22 @@
-import "./Dashboard.css";
-import { useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-
-import {
-  Container,
-  Row,
-  Col,
-  ListGroup,
-  Spinner,
-  Alert,
-} from "react-bootstrap";
+import "./Dashboard.css";
 
 interface Score {
-  userName: String;
+  userName: string;
   email: string;
   highest_score: number;
 }
 
-const Dashboard = () => {
+const Dashboard: React.FC = () => {
   const [scores, setScores] = useState<Score[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const location = useLocation();
-  const currentUserEmail = location.state?.email;
 
+  const location = useLocation();
+  const navigate = useNavigate();
+  const currentUserEmail = sessionStorage.getItem("userEmail");
   useEffect(() => {
     const fetchScores = async () => {
       try {
@@ -44,48 +36,50 @@ const Dashboard = () => {
     return email === currentUserEmail ? "highlighted" : "";
   };
 
-  return (
-    <Container
-      fluid
-      className="dash-container vh-100 d-flex flex-column justify-content-center align-items-center"
-    >
-      {currentUserEmail ? (
-        <p>Your email is: {currentUserEmail}</p>
-      ) : (
-        <p>Email not available.</p>
-      )}
-      <Row className="mb-4">
-        <Col className="text-center">
-          <h1 style={{ color: "#fff", fontWeight: "bold" }}>Leaderboard</h1>
-        </Col>
-      </Row>
+  const handleHome = () => {
+    navigate("/home");
+  };
 
-      {loading ? (
-        <Row className="justify-content-center">
-          <Spinner animation="border" variant="light" />
-        </Row>
-      ) : error ? (
-        <Row className="justify-content-center">
-          <Alert variant="danger">{error}</Alert>
-        </Row>
-      ) : (
-        <Row className="w-100">
-          <Col>
-            <ListGroup>
-              {scores.map((score) => (
-                <ListGroup.Item
+  return (
+    <div className="dash-container ">
+      <div className="dashboard-container">
+        <div className="background-shapes"></div>
+
+        <div className="leaderboard-box">
+          <h1 className="leaderboard-title">LEADERBOARD</h1>
+
+          {loading ? (
+            <div className="loading">Loading...</div>
+          ) : error ? (
+            <div className="error-message">{error}</div>
+          ) : (
+            <div className="leaderboard-list">
+              {scores.map((score, index) => (
+                <div
+                  className={`leaderboard-item ${getListItemClass(
+                    score.email
+                  )}`}
                   key={score.email}
-                  className={getListItemClass(score.email)}
                 >
-                  <strong>{score.email}. </strong>
-                  {score.userName} - {score.highest_score} points
-                </ListGroup.Item>
+                  <div className="rank">{index + 1}</div>
+
+                  <div className="user-details">
+                    <span className="user-name">{score.userName}</span>
+                    <span className="user-score">{score.highest_score}</span>
+                  </div>
+                </div>
               ))}
-            </ListGroup>
-          </Col>
-        </Row>
-      )}
-    </Container>
+            </div>
+          )}
+
+          <div className="btn-container">
+            <button className="dashhome-btn custom-button" onClick={handleHome}>
+              Home
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

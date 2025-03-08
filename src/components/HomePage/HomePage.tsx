@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 const HomePage = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const email = location.state?.email;
 
   const handleSignOut = () => {
     localStorage.clear();
@@ -15,7 +14,7 @@ const HomePage = () => {
   return (
     <div className="home-container vh-100 d-flex flex-column justify-content-center align-items-center position-relative">
       <button
-        className="signout-button position-absolute top-0 end-0 m-3 custom-button"
+        className="signout-button position-absolute top-0 end-0 m-3 custom-button btn-success"
         onClick={handleSignOut}
       >
         Sign Out
@@ -34,14 +33,14 @@ const HomePage = () => {
 
       <div className="mt-5 d-flex flex-column gap-4">
         <button
-          className="custom-button"
-          onClick={() => navigate("/game", { state: { email } })}
+          className="custom-button btn-success w-100"
+          onClick={() => navigate("/game")}
         >
           Play
         </button>
         <button
-          className="custom-button"
-          onClick={() => navigate("/dashboard", { state: { email } })}
+          className="custom-button btn-success w-100"
+          onClick={() => navigate("/dashboard")}
         >
           Dashboard
         </button>
