@@ -20,10 +20,12 @@ const HomePage = () => {
         Sign Out
       </button>
 
-      <h1 className="text-center" style={{ color: "#4F0640" }}>
+      <h1
+        className="text-center spicy-rice-regular"
+        style={{ color: "#4F0640" }}
+      >
         PUZZLE PEEL
       </h1>
-
       <img
         src="/src/assets/home-page-img.png"
         alt="Puzzle Peel"

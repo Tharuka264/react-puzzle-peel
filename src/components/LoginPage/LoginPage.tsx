@@ -88,7 +88,10 @@ function LoginPage() {
       className="login-container vh-100"
       style={{ display: "flex", flexDirection: "column" }}
     >
-      <h1 className="text-center mt-4" style={{ color: "#4F0640" }}>
+      <h1
+        className="text-center mt-4 spicy-rice-regular"
+        style={{ color: "#4F0640" }}
+      >
         Welcome to PUZZLE PEEL
       </h1>
       <ToastContainer position="top-right" autoClose={3000} />
@@ -121,9 +124,9 @@ function LoginPage() {
           className="card login-card shadow-lg p-4"
           style={{ width: "400px" }}
         >
-          <h2 className="text-center mb-4">{isLogin ? "Login" : "Sign Up"}</h2>
+          <h2 className="text-center mb-4 ">{isLogin ? "Login" : "Sign Up"}</h2>
 
-          <div className="nav nav-tabs mb-3">
+          <div className="nav nav-tabs mb-3 w-color">
             <button
               className={`nav-link ${isLogin ? "active" : ""}`}
               onClick={() => {
