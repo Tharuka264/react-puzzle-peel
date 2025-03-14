@@ -1,25 +1,21 @@
 import "./HomePage.css";
+import { useAudio } from "../../context/AudioContext";
 import { useLocation, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import MuteButton from "../MuteButton";
+import SignOutButton from "../SignOutButton";
 
 const HomePage = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { playAudio } = useAudio();
 
-  const handleSignOut = () => {
-    localStorage.clear();
-    sessionStorage.clear();
-    navigate("/");
-  };
+  useEffect(() => {
+    playAudio();
+  }, [playAudio]);
 
   return (
     <div className="home-container vh-100 d-flex flex-column justify-content-center align-items-center position-relative">
-      <button
-        className="signout-button position-absolute top-0 end-0 m-3 custom-button btn-success"
-        onClick={handleSignOut}
-      >
-        Sign Out
-      </button>
-
       <h1
         className="text-center spicy-rice-regular"
         style={{ color: "#4F0640" }}
@@ -46,6 +42,8 @@ const HomePage = () => {
         >
           Dashboard
         </button>
+        <SignOutButton />
+        <MuteButton />
       </div>
     </div>
   );

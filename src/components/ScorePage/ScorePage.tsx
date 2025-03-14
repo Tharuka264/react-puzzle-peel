@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./ScorePage.css";
+import MuteButton from "../MuteButton";
+import SignOutButton from "../SignOutButton";
 
 const ScorePage = () => {
   const location = useLocation();
@@ -79,6 +81,8 @@ const ScorePage = () => {
             </button>
           </div>
         </div>
+        <SignOutButton />
+        <MuteButton />
       </div>
     </>
   );

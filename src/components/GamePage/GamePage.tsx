@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./GamePage.css";
+import MuteButton from "../MuteButton";
+import SignOutButton from "../SignOutButton";
 
 const GamePage = () => {
   const [question, setQuestion] = useState("");
@@ -74,6 +76,8 @@ const GamePage = () => {
           Submit
         </button>
       </form>
+      <SignOutButton />
+      <MuteButton />
     </div>
   );
 };

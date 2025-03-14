@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Dashboard.css";
+import MuteButton from "../MuteButton";
+import SignOutButton from "../SignOutButton";
 
 interface Score {
   userName: string;
@@ -79,6 +81,8 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
       </div>
+      <SignOutButton />
+      <MuteButton />
     </div>
   );
 };
