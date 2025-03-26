@@ -7,3 +7,17 @@
     background: rgba(62, 44, 62, 0.85) !important;
     color: white !important;
 }
+
+.btn-card {
+  text-align: center;
+}
+
+.spicy-rice-regular {
+  font-family: "Spicy Rice", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.w-color{
+  color: white;
+}

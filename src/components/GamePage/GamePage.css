@@ -1,0 +1,26 @@
+.game-container {
+    background: url('/src/assets/game_img.png') no-repeat center center;
+    background-size: cover;
+  }
+  
+  .timer {
+    color: #ffffff;
+  }
+  
+  .puzzle-image {
+    max-width: 80%;
+    border: 5px solid #fff;
+  }
+  
+  .answer-form .form-control {
+    width: 300px;
+  }
+  
+  .btn-success {
+    background: linear-gradient(45deg, #45982E, #17320F);
+    color: white;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    padding: 10px 20px !important;
+    border-radius: 25px !important;
+  }

@@ -1,0 +1,33 @@
+.home-container {
+    background-image: url('/src/assets/main_bg.png');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .custom-button {
+    background: linear-gradient(to bottom, #45982E, #17320F);
+    color: white;
+    border: none;
+    min-width: 150px;
+    min-height: 60px;
+    border-radius: 25px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .signout-button {
+    background: linear-gradient(to bottom, #982E2E, #320F0F) !important;
+  }
+  
+  .custom-button:hover {
+    opacity: 0.9;
+  }
+
+  .spicy-rice-regular {
+    font-family: "Spicy Rice", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
